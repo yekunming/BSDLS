@@ -1,0 +1,502 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DataImport_待处理流水" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_FilePath" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1050,4800</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>DataImport_待处理流水_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="21">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DataImport_待处理流水" sap:VirtualizedContainerService.HintSize="556,4635" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="blTextExists" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="附加窗口 'UClient.exe Yonyou'" sap:VirtualizedContainerService.HintSize="514,4543" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="5c01e6264ed5385787bf3616343759ef" Selector="&lt;wnd app='uclient.exe' cls='YonyouUWnd' title='Yonyou UClient' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="480,4397" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:AppendLine DisplayName="本地日志" FileName="[&quot;Log\&quot;+Now.Year.ToString+&quot;\&quot;+Now.Month.ToString+&quot;\&quot;+Now.Day.ToString+&quot;号主机解款运行日志.txt&quot;]" sap:VirtualizedContainerService.HintSize="438,136" sap2010:WorkflowViewState.IdRef="AppendLine_1" Text="[now.ToString(&quot;yyyy-MM-dd hh:mm:ss&quot;)+&quot;：------开始NC系统收款单生成&quot;]" UseDefaultEncoding="False" />
+            <TryCatch DisplayName="Try Catch 异常处理" sap:VirtualizedContainerService.HintSize="438,393" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <TryCatch.Try>
+                <ui:ClickImage ContinueOnError="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_DOUBLE" DelayBefore="3000" DisplayName="单击图像 '待处理流水清单'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:ClickImage.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:ClickImage.CursorPosition>
+                  <ui:ClickImage.Image>
+                    <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG0AAAAVCAYAAABMiWD6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANuSURBVGhD7ZbbTxNREMb3v/Vf8MkHjYjgNfGa+KCGeAElCkKLYi0iBalcqhZoFGrDHQqIGH0g4bOzcZpxMufsFvFCsr/ky8yZ+XZOyaRLAyQcOpKlHUKCmbklFKbnGtaRoxdD8Xl7e/vnyIQ/TdD1JIU46u5NozfVh950X5iTZD9Z2t8jKCx/Rr5SxfDsKl4U5/Gs8Aldr0vofFXEzVQe1x8N48rDV7j6MIfrnSO40Z3HrdQEbqcncaf/Pe49n0J7ZjpyaUHw65tYnyVWz+dnyOOSj6i+pBEvs9/7nfXxhU2MzK1h6MMy0uOzaB94h0sdL3G27Tlabz3DubYMLt7N4vKDHK515upLa+t7Gy7sfnYaHQMz3qVZl/v+kLh+qrH4zFi5rGl8PUmcGRSjpNE1y8MEXaljqCxc+C3RDNfSrA+jpbH6lo+Q9UZyij65sHqyFtXXUC9KmnBpByFrafJCfbn1YRjrOYrWM9rrkgtfj9AzZE7IXMI+S5JGz0SQHxvH0OgEcvlJvB57i9Hxd3gzWcRYYQqFYgnFmY+YKs2i9LGMD3MVlCsLqMwvYX5xBUsra6FoRpzXI0WXGJkTfNaRcT3ryiVWPcpLUeZx8Pl4nk+aYGqmhJHRN8iNjCKTfYmn/Rl096TwuLunHkk9tV+O6af96M9kkR0YxMDgEAaHhkPRDN/r0bqYMD+QqvFZ1mWNxWfGynXNJw3XdJTIXpQYmRNRZyJYWFxCpfIJm5sbWFtdDWO5XEa1WsWX7R183trC+vo6vu7sYKcmqlMkkZ+WRTN8r0cZXeK+FYm4uUuMzF1YHq7pqInbZ+gcJU2tZhtZu7u7kaKFxXk9aqLqsr/fGT70PXFmuXIN9VzyEdUnvA4asLe3F6lv377HXpor1+iey6vnuWTBdR01su7KNXFnxZUkPLlMFK0lWWrkmybnW1h9n9fq+fwM565IyJyIe6boko+oPlF3WIMp0v+wKDW6NMaq65rrWYJ6+51t5a4o8dVkz/IRrjoT1SfqDjJLcY1+mDi1UQ3jfr5p8h5GnxnpZ2ksj5TEd7b8BNetnoVvho848+sOHigHxxnA+JaWcLCEW5GLIuTSWs5cqOk8mlvPobnlLJqaz+Ak6VQrTjS14PhJ0ulkaX+R+tIsXPWEf0ttL7++FrUS/j+SrRw6gB9uAo/bgg4vbgAAAABJRU5ErkJggg==" />
+                  </ui:ClickImage.Image>
+                  <ui:ClickImage.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="dc51003e-420a-4886-a9e6-6c09a3d475fb" WaitForReady="NONE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:ClickImage.Target>
+                </ui:ClickImage>
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,23" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="单击图像 '待处理流水清单'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="ClickImage_9" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:ClickImage.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:ClickImage.CursorPosition>
+                      <ui:ClickImage.Image>
+                        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHQAAAATCAYAAABBaynFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARQSURBVGhD7Znfa5tlFMfzF6jgxCn7WxQEb73xphfCFJXCLrzwQgRFRVmt7Vo3cbqByjaLPzZbtLFN+mMxbde0a9au2Ux/0LVZSNetbdatVuZFab6+503OPD08z/O+r86ikC98OOf5nvO+BL7kTUhiqGk4BzzbUMEjjwMxz63z3+fhR4GGg8DCQi1ET54NtH9dwUP7gKdeqKDxxA7eTtb5P3Doqx0881IFj+0H4nE/T8TonUlhHmz7a3FuaQW52aXINL55zIfPm5ubu15AnX+HV4/vYP+T1XdqjB6z9M6UC90/J0IR702iN9GH3mSf3xNyXg9073j+UAUNDV6g9JmpH7O5m3eRLZYxtriKX/IlDOSuo/viPLou5HEqkcXJH8fwWecFfN6ZwcmucXwRz+J04jLOJKfxzeCv+O78DM6mZgMDJbnOEtPM5GlcMu0zQXNJlF0m6Brb3Oa/dsp7l3qP3hh9uOrh1PIGxpfWMLpwE8mpRZwduopPzw2jreM8Wk8PoL0jhWPfpnH8hwxOdGXuB9rRd8UP8/v0LM4NzTkDNb0wk8eYZjaPpXdMPVcTrpnEtcezMLJdaztrql+WDIF2J95BcfnoP4LuYQtUvzCT5Ny0w57e036UPki8rzHNpCd7l8eEkek6Z6APAlOg8sXI3nSWyBn3LPb1nHub5DUS14yQkmc5517ikt6LcmasgWYnpzA6cRmZ7DQuTl7BxNRVXJrOYzI3g1x+Hvm5a5iZX8T8tQIWloooFJdRLK2gdOMWVm6t+dA9wjxyXdK7+qyrnoftJSbf5EmfJb0gXHthZLrOGujM3DzGJy4hMz6BVHoY/YMpxHsS+Cnec78SPd433GT/IAZTaaSHRjA0MoqR0TEfuofrkUuyzYI8PnPVHsu2I3uu3LvEe3LfVCXshZG+JuyZsQa6fGMFxeJ1bGzcxtrqql8LhQLK5TJ+29zC3Tt3sL6+jt+3trDlQT5VgvYpSLqH65Erq022fapReptM+zZMO+zpqmGfq0b7YST3GWOgZASxvb0dCIUZ5pEb1eeqe0lUX8I7umqkb+s1Lpn2maA540Xj56NMz3CI5pVKJZB79/4IHait1+iZPpt8l+Q1ct9UNdK39RrbTPpRJO9BOAOlqmHfFKCJKO9QPnPVsM9V9xKWydee9rm3Vd1HObsk9zVBc4Yi8nPabVaDI3GQDHv0mRlE1EBdvvb0WcKyzVyeqbdVicvjqnuJzWeC5sR7/bVA9z2x+6c/Do4kw2SfKn1JsnK77Ne/8w5laV+epa8VZkdK79rOLDmXPknPTJj2WNqXBM2Jps7aT38vNgJPix/nOTiSDJN9OQ+SK9A6D5bX36r9OF8qwf8/7eVPqgMZnAxP+i1Hjnp8jObWdjS3tKGp+QgOEx+24oOmFrx/mPioHuge8WWiggMHan+fUUgDA/D/T3vulcqu4Ewi33TTOnsLfWbSY/aNd6thVv/gBv4EDT3Z7e8N+j0AAAAASUVORK5CYII=" />
+                      </ui:ClickImage.Image>
+                      <ui:ClickImage.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="dc51003e-420a-4886-a9e6-6c09a3d475fb" WaitForReady="NONE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:ClickImage.Target>
+                    </ui:ClickImage>
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="3000" DisplayName="单击 'push button  批量导入'" sap:VirtualizedContainerService.HintSize="438,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3d6f48fd-4667-413b-83cb-c1717e748f1b" InformativeScreenshot="a5eade2538c3e71dc4eee46fea32a996" Selector="&lt;wnd cls='SunAwtFrame' /&gt;&lt;java role='page tab list' /&gt;&lt;java name='待处理流水清单' role='page tab' /&gt;&lt;java name='批量导入' role='push button' /&gt;" TimeoutMS="1800000" WaitForReady="NONE" />
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="单击 '数据导入'" sap:VirtualizedContainerService.HintSize="438,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="False">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bddfd21c-9988-48c0-b9af-ad452f71ca32" InformativeScreenshot="0eb086ad4bc722a3ae233960176ba3a6" Selector="&lt;wnd cls='SunAwtFrame' /&gt;&lt;java name='数据导入' role='menu item' /&gt;" WaitForReady="NONE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="附加窗口 'javaw.exe  请选择要导入的文件...'" sap:VirtualizedContainerService.HintSize="438,518" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="e0169e6071e6c2288961a15dd848d363" Selector="&lt;wnd app='java*.exe' cls='SunAwtDialog' title='请选择要导入的文件...' /&gt;">
+              <ui:WindowScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,372" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="输入信息 '文件路径：'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[in_FilePath]">
+                      <ui:TypeInto.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3c380d23-d91e-4600-98bf-c4cdd3bcaeec" InformativeScreenshot="db2c9955ec7745f0bb2bfce26de603a6" Selector="&lt;wnd app='java*.exe' cls='SunAwtDialog' title='请选择要导入的文件...' /&gt;&lt;java name='文件名：' role='text' /&gt;" WaitForReady="NONE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:TypeInto.Target>
+                    </ui:TypeInto>
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="30000" DisplayName="单击 '确定'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bbc9e6ad-107e-41db-aa22-aac268f39a9f" InformativeScreenshot="ae02f1e1262c1048de983fa998a45f15" Selector="&lt;java name='确定' role='push button' /&gt;" WaitForReady="NONE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                  </Sequence>
+                </ActivityAction>
+              </ui:WindowScope.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:WindowScope>
+            <ui:RetryScope DisplayName="重试范围" sap:VirtualizedContainerService.HintSize="438,380" sap2010:WorkflowViewState.IdRef="RetryScope_4" NumberOfRetries="60" RetryInterval="00:00:10">
+              <ui:RetryScope.ActivityBody>
+                <ActivityAction>
+                  <Sequence DisplayName="操作" sap:VirtualizedContainerService.HintSize="200,85" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </ActivityAction>
+              </ui:RetryScope.ActivityBody>
+              <ui:RetryScope.Condition>
+                <ActivityFunc x:TypeArguments="x:Boolean">
+                  <ui:TextExists FormattedText="{x:Null}" DisplayName="存在文本 'text'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TextExists_2" Occurrence="1" Text="导入成功">
+                    <ui:TextExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d8db5c7a-20ea-4556-8ceb-cb00f17a3382" InformativeScreenshot="deea183106cb1b2a71a5c92d459c49ea" Selector="&lt;wnd app='java*.exe' cls='SunAwtDialog' title='提示' /&gt;&lt;java role='text' /&gt;" TimeoutMS="10000">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TextExists.Target>
+                  </ui:TextExists>
+                </ActivityFunc>
+              </ui:RetryScope.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:RetryScope>
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="附加窗口 'javaw.exe  提示'" sap:VirtualizedContainerService.HintSize="438,666" sap2010:WorkflowViewState.IdRef="WindowScope_4" InformativeScreenshot="84e673a0fb6aacaee7d63fb96ef16021" Selector="&lt;wnd app='java*.exe' cls='SunAwtDialog' title='提示' /&gt;">
+              <ui:WindowScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,520" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:SetFocus DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="设置焦点 'javaw.exe  提示'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="SetFocus_1">
+                      <ui:SetFocus.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90d84aa8-0aff-4509-8612-d2a00172784f" InformativeScreenshot="685d46dc97693aa8ca90ad22fb221973" Selector="&lt;wnd app='java*.exe' cls='SunAwtDialog' title='提示' /&gt;&lt;java name='确定(Y)' role='push button' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:SetFocus.Target>
+                    </ui:SetFocus>
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="3000" DisplayName="单击 'push button  确定(Y)'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cdbc9e29-d502-4e48-9634-b90d8608af6a" InformativeScreenshot="685d46dc97693aa8ca90ad22fb221973" Selector="&lt;wnd app='java*.exe' cls='SunAwtDialog' title='提示' /&gt;&lt;java name='确定(Y)' role='push button' /&gt;" WaitForReady="NONE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:AppendLine DisplayName="本地日志" FileName="[&quot;Log\&quot;+Now.Year.ToString+&quot;\&quot;+Now.Month.ToString+&quot;\&quot;+Now.Day.ToString+&quot;号主机解款运行日志.txt&quot;]" sap:VirtualizedContainerService.HintSize="334,136" sap2010:WorkflowViewState.IdRef="AppendLine_2" Text="[now.ToString(&quot;yyyy-MM-dd hh:mm:ss&quot;)+&quot;：------NC系统待处理数据导入成功&quot;]" UseDefaultEncoding="False" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:WindowScope.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:WindowScope>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="3000" DisplayName="单击 'push button  全选'" sap:VirtualizedContainerService.HintSize="438,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6baf8415-b2ba-4859-b549-4b84a885a1a8" InformativeScreenshot="bb9f5d34a8138c6f05e2b8147b52866c" Selector="&lt;wnd cls='SunAwtFrame' /&gt;&lt;java role='page tab list' /&gt;&lt;java name='待处理流水清单' role='page tab' /&gt;&lt;java name='全选' role='push button' /&gt;" WaitForReady="NONE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="30000" DisplayName="单击 'push button  生成收款单'" sap:VirtualizedContainerService.HintSize="438,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ca91eea1-bbc7-483b-bd76-1a2ce314975f" InformativeScreenshot="5d2ef84336fbf8b298222950aaff363b" Selector="&lt;wnd cls='SunAwtFrame' /&gt;&lt;java role='page tab list' /&gt;&lt;java name='待处理流水清单' role='page tab' /&gt;&lt;java name='生成收款单' role='push button' /&gt;" WaitForReady="NONE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <ui:RetryScope DisplayName="重试范围" sap:VirtualizedContainerService.HintSize="438,380" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="60" RetryInterval="00:00:10">
+              <ui:RetryScope.ActivityBody>
+                <ActivityAction>
+                  <Sequence DisplayName="操作" sap:VirtualizedContainerService.HintSize="200,85" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </ActivityAction>
+              </ui:RetryScope.ActivityBody>
+              <ui:RetryScope.Condition>
+                <ActivityFunc x:TypeArguments="x:Boolean">
+                  <ui:TextExists FormattedText="{x:Null}" DisplayName="存在文本 'text'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TextExists_1" Occurrence="1" Text="生成收款单成功">
+                    <ui:TextExists.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d8db5c7a-20ea-4556-8ceb-cb00f17a3382" InformativeScreenshot="d0956ead924ca5b799b1dac70059c075" Selector="&lt;wnd app='java*.exe' cls='SunAwtDialog' title='提示' /&gt;&lt;java role='text' /&gt;" TimeoutMS="10000">
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:TextExists.Target>
+                  </ui:TextExists>
+                </ActivityFunc>
+              </ui:RetryScope.Condition>
+            </ui:RetryScope>
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="附加窗口 'javaw.exe  提示'" sap:VirtualizedContainerService.HintSize="438,666" sap2010:WorkflowViewState.IdRef="WindowScope_3" InformativeScreenshot="84e673a0fb6aacaee7d63fb96ef16021" Selector="&lt;wnd app='java*.exe' cls='SunAwtDialog' title='提示' /&gt;">
+              <ui:WindowScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,520" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:SetFocus DelayBefore="{x:Null}" DelayMS="{x:Null}" DisplayName="设置焦点 'javaw.exe  提示'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="SetFocus_2">
+                      <ui:SetFocus.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="90d84aa8-0aff-4509-8612-d2a00172784f" InformativeScreenshot="685d46dc97693aa8ca90ad22fb221973" Selector="&lt;wnd app='java*.exe' cls='SunAwtDialog' title='提示' /&gt;&lt;java name='确定(Y)' role='push button' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:SetFocus.Target>
+                    </ui:SetFocus>
+                    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="单击 'push button  确定(Y)'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cdbc9e29-d502-4e48-9634-b90d8608af6a" InformativeScreenshot="685d46dc97693aa8ca90ad22fb221973" Selector="&lt;wnd app='java*.exe' cls='SunAwtDialog' title='提示' /&gt;&lt;java name='确定(Y)' role='push button' /&gt;">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:AppendLine DisplayName="本地日志" FileName="[&quot;Log\&quot;+Now.Year.ToString+&quot;\&quot;+Now.Month.ToString+&quot;\&quot;+Now.Day.ToString+&quot;号主机解款运行日志.txt&quot;]" sap:VirtualizedContainerService.HintSize="334,136" sap2010:WorkflowViewState.IdRef="AppendLine_3" Text="[now.ToString(&quot;yyyy-MM-dd hh:mm:ss&quot;)+&quot;：------NC系统待处理数据成功生成收款单&quot;]" UseDefaultEncoding="False" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:WindowScope.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:WindowScope>
+            <ui:Hover DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateHover="{x:Null}" DelayMS="2000" DisplayName="悬停 'page tab  待处理流水清单'" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="Hover_1">
+              <ui:Hover.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Hover.CursorPosition>
+              <ui:Hover.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b7d6f9af-d1ca-48bf-a590-2127f7b2f336" InformativeScreenshot="0916a5f0db10e816741e0a5a3d4dfbd2" Selector="&lt;wnd cls='SunAwtFrame' /&gt;&lt;java role='page tab list' /&gt;&lt;java name='待处理流水清单' role='page tab' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Hover.Target>
+            </ui:Hover>
+            <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="单击图像 'UClient.exe Yonyou'" sap:VirtualizedContainerService.HintSize="434,156" sap2010:WorkflowViewState.IdRef="ClickImage_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:ClickImage.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:ClickImage.CursorPosition>
+              <ui:ClickImage.Image>
+                <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAYAAAB24g05AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG8SURBVChTpdHNSxRhHMDx51/IDuWG0BtYf4DQdqlTJ9OCaq0W1B0rlCB6WWGD6lAEHjrkIZACgy5RBAlaIOHay9oqIri9aEZtWqs7IG677jMzl51v8zzyTHRu4MM88+P7GwZGTP6S/A+RWaygzN7rpXg7yvKNvaxca2Tl+p5QMZgVUrtYTO5kus/SvSHe5ksoxZtNlMdieHMWzuxJ3I+duJ/PBfdE8NyGN99FefwEhd4dujfEmy+rKIXLDXifesCvac5EF3LsME6mPZy5M3Hsi5t1b4j0nI1SSG7Hm0rgZlPhghw9Fp696VsBCzsZ0b0h0rlllOLV3Xjve5BDLbiv/n6J4o5fCuZH8LLnsa/U694QL2Z+onzr2IZ80krp7n5+9zf984JSf5TSnX3Ix838iNfp3hBPJ5dQFk7XIx8dojzQvLEYXOE5UB5opfrwIPm2Tbo3xEjORsnFtlAdPBAuVB60hMxs/X6U/Kk63Rvi5fwqyodYBGfkLPJ5kurQBa0yeJT1Z936LIdTOMMJvse36t4Qo1/XUBY6GiATx890Unsdw5+w8Ke68bMWtfRxau+C35ltZ+lMRPcb1vgDjk05mGcJSR4AAAAASUVORK5CYII=" />
+              </ui:ClickImage.Image>
+              <ui:ClickImage.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="95dd6e0d-48e2-4b40-b24a-b70f331e4557">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:ClickImage.Target>
+            </ui:ClickImage>
+          </Sequence>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+    </ui:WindowScope>
+  </Sequence>
+</Activity>
